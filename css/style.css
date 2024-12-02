@@ -1,0 +1,327 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    user-select: none;
+}
+body
+{
+    width: 100%;
+    height: 100vh;
+    background-color: #efeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+@font-face
+{
+    font-family: "icon";
+    src: url('../font/iconfont.ttf') format('truetype'),
+         url('../font/iconfont.woff') format('woff'),
+         url('../font/iconfont.woff2') format('woff2');
+}
+.play, .pause,
+.prev, .next,
+.volume, .mute,
+.fullScreen, .quit,
+.videoList
+{
+    font-family: "icon" !important;
+    font-style: normal;
+    text-align: center;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.play::before
+{
+    content: "\e620";
+}
+.pause::before
+{
+    content: "\e621";
+}
+.prev::before
+{
+    content: "\e622";
+}
+.next::before
+{
+    content: "\e623";
+}
+.volume::before
+{
+    content: "\e624";
+}
+.mute::before
+{
+    content: "\e625";
+}
+.fullScreen::before
+{
+    content: "\e626";
+}
+.quit::before
+{
+    content: "\e62c";
+}
+.videoList::before
+{
+    content: "\e627";
+}
+
+
+.videoBox
+{
+    width: 1200px;
+    height: 675px;
+    border-radius: 15px;
+    transition: all .2s ease-in-out;
+    overflow: hidden;
+    position: relative;
+}
+.video
+{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+
+.control
+{
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0,0,0, .5);
+    backdrop-filter: blur(10px);
+    transition: all .2s ease-in-out;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+.play_pause
+{
+    display: flex;
+}
+.play, .pause, .prev, .next,
+.fullScreen, .quit,
+.videoList
+{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.videoProgress
+{
+    width: 45%;
+    height: 8px;
+    background-color: #a1a1a1;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.videoBar
+{
+    width: 0;
+    height: 8px;
+    background-color: white;
+    border-radius: 4px;
+    position: relative;
+}
+.videoBar::before
+{
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 7px);
+    right: -7px;
+}
+
+.time
+{
+    width: 164.31px;
+    padding: 0 10px;
+    color: white;
+}
+
+.volumeBox
+{
+    position: relative;
+}
+.volumeBarBox
+{
+    display: none;
+    width: 50px;
+    padding: 0 0 10px 0;
+    background-color: rgba(0,0,0, .5);
+    backdrop-filter: blur(10px);
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    bottom: 40px;
+}
+.volumeValue,
+.volume, .mute
+{
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+}
+.volumeProgress
+{
+    width: 8px;
+    height: 128px;
+    margin: auto;
+    background-color: #a1a1a1;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+.volumeBar
+{
+    width: 8px;
+    height: 50%;
+    background-color: white;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 0;
+}
+.volumeBar::before
+{
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    left: calc(50% - 7px);
+}
+.volume, .mute
+{
+    cursor: pointer;
+}
+
+.speedBox
+{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    position: relative;
+}
+.btnBox
+{
+    display: none;
+    width: inherit;
+    background-color: rgba(0,0,0, .5);
+    backdrop-filter: blur(10px);
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    bottom: 40px;
+}
+.block
+{
+    display: block;
+}
+.btnBox div,
+.speed
+{
+    cursor: pointer;
+}
+.btnBox div:hover
+{
+    font-size: 18px;
+}
+
+
+.videoListBox
+{
+    width: 300px;
+    height: 94%;
+    padding: 20px;
+    background-color: rgba(0,0,0, .5);
+    backdrop-filter: blur(10px);
+    color: white;
+    transition: all .2s ease-in-out;
+    position: absolute;
+    top: 0;
+    right: -300px;
+}
+.right
+{
+    right: 0;
+}
+.caption
+{
+    margin: 0 0 20px 0;
+}
+.off
+{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.off::before, .off::after
+{
+    content: '';
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    border-radius: 1px;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: calc(50% - 10px);
+}
+.off::before
+{
+    transform: rotate(45deg);
+}
+.off::after
+{
+    transform: rotate(-45deg);
+}
+
+.listBox
+{
+    max-height: 558px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+.listBox::-webkit-scrollbar
+{
+    display: none;
+}
+.listBox div
+{
+    width: 48%;
+    margin: 0 0 10px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    overflow: hidden;
+}
+/* .listBox div:nth-child(even)
+{
+    text-align: right;
+} */
